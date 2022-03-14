@@ -1,0 +1,99 @@
+body {
+    background-color:skyblue;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+header {
+    grid-area: head;
+    background-color: blanchedalmond;
+    width: 100%;
+    padding: 20px;
+    border-top-left-radius: 50% 99%;
+    border-top-right-radius: 88% 12%;
+    border-bottom-left-radius: 12.5% 25%;
+    border-bottom-right-radius: 12% 88%;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-style: oblique;  
+}
+h2 {
+    text-align: right;
+}
+
+h3 {
+    text-align: center;
+}
+
+button {
+    margin-top: 20px;
+    grid-area: button;
+    width: 300px; 
+    height: 100px;
+    background-color: white;
+    font-size: 1.5rem;
+    color: black;
+    border: none;
+    border-radius: 25px;
+}
+.waitingContainer {
+    margin: 20px auto;
+    display: flex;
+    grid-area: dots;
+}
+
+.dot {
+    
+    display: none;
+    margin: 20px;
+    background-color: brown;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+#receptnaam {
+    grid-area: receptnaam;
+    text-align: center;
+}
+
+#ingredienten {
+    grid-area: result;
+    background-color: white;
+}
+
+#picture {
+    display: none;
+    grid-area: picture;
+    
+}
+
+#picture img {
+    min-width: 200px;
+    min-height: 200px;
+    max-height: 100%;
+   max-width: 400px;
+}
+
+
+
+.koekGrid {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    max-width: 976px;
+    margin: 50px auto;
+    grid-template-areas:
+     "head"
+    "button"
+    "dots"
+    "receptnaam"
+    "picture"
+    "result";
+    
+grid-template-rows: 200px 100px 50px 100px 400px 1fr;
+grid-template-columns: 1fr;
+    
+}
