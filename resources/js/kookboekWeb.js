@@ -104,9 +104,9 @@ async function koken(){
     const ingredDiv = document.getElementById('ingredienten');
     const picture = document.getElementById('picture');
     const receptSectie = document.getElementById('recept');
-    ingredDiv.innerHTML = '<div></div>';
-    firstP.style.display = "none";
-    picture.style.display= "none";
+    // ingredDiv.innerHTML = '<div></div>';
+    // firstP.style.display = "none";
+    // picture.style.display= "none";
 
     hideDots(allDots);
     await loadDot(dot1);
@@ -121,18 +121,37 @@ async function koken(){
 
     // make a container element 'meelGrid'
     const meelGrid = document.createElement('div');
-    meelGrid.classname = 'meelGrid';
+    meelGrid.className = 'meelGrid';
+
+    //make h2 'receptnaam'
+    const meelh2 = document.createElement('h2');
+    meelh2.id = 'receptNaam'
+    meelh2.innerHTML = '<h2>'+ recept.naam + '</h2>';
+
+    //make meelPicture
+    const meelPicture = document.createElement('img');
+    meelPicture.id = 'meelPicture';
+    meelPicture.src = `${recept.picture}`;
+
+    //make ReceptGrid
+    const receptGrid = document.createElement('div');
+    receptGrid.id ='receptGrid';
+
+    // Make a container element for the list
+
   
-    //add it to koekGrid
-    document.getElementsByClassName('meelGrid')[0].appendChild(meelGrid);
+    //add elements to koekGrid
+    document.getElementsByClassName('koekGrid')[0].appendChild(meelGrid);
+    meelGrid.appendChild(meelh2);
+    meelGrid.appendChild(meelPicture);
+    meelGrid.appendChild(receptGrid);
+
+  
 
     /*
-    //changes end here
-    firstP.style.display='grid';
-    firstP.innerHTML = '<h3>'+ recept.naam + '</h3>';
-    firstP.className = "receptNaam";
 
-   // Make a container element for the list
+
+   
    const listContainer = ingredDiv;
 
     //write ingredient array as list?
