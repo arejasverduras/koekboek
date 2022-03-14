@@ -116,7 +116,18 @@ async function koken(){
     const boek = kookboek;
     const recept = await kiesRecept(boek);
     const ingred = await toonIngredienten(recept);
- 
+
+    //make changes from here
+
+    // make a container element 'meelGrid'
+    const meelGrid = document.createElement('div');
+    meelGrid.classname = 'meelGrid';
+  
+    //add it to koekGrid
+    document.getElementsByClassName('meelGrid')[0].appendChild(meelGrid);
+
+    /*
+    //changes end here
     firstP.style.display='grid';
     firstP.innerHTML = '<h3>'+ recept.naam + '</h3>';
     firstP.className = "receptNaam";
@@ -152,6 +163,7 @@ async function koken(){
     picture.innerHTML = `<img src=${recept.picture}>`;
     picture.style.display = 'grid';
     receptSectie.style.backgroundColor = 'white';
+    */
 }
 
 

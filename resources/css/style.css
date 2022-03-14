@@ -19,9 +19,11 @@ h1 {
   text-transform: uppercase;
   font-style: oblique;  
 }
-h2 {
+
+header p {
     text-align: right;
 }
+
 
 h3 {
     text-align: center;
