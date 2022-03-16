@@ -30,7 +30,7 @@ const kookboek = {
   const randomRecept = (boek) => {
     const recepten = Object.keys(boek);
      let index = Math.floor(Math.random()*recepten.length);
-     let recept = recepten[2];
+     let recept = recepten[index];
      return recept;
     
    }
