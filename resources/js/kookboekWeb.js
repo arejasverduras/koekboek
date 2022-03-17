@@ -5,7 +5,8 @@ const kookboek = {
       voorkeur: 'vega',
       kooktijd: 15,
       categorie: 'pasta',
-      picture: "./resources/images/pasta-paddenstoelen.jpg"
+      picture: "./resources/images/pasta-paddenstoelen.jpg", 
+      instructie: ['Maak de paddenstoelen schoon door het vuil eraf te vegen met een keukenpapiertje.', 'Snijd de paddenstoelen in stukjes', 'Kook ondertussen de pasta', 'Verhit olijfolie in de koekenpan en bak de paddenstoelen met een beetje zout']
       },
     2: {
       naam: 'Frisse Salade',
@@ -119,7 +120,7 @@ async function koken(){
 
     
     //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
-    
+
     // make a container element 'meelGrid'
     const meelGrid = document.createElement('div');
     meelGrid.className = 'meelGrid';
@@ -146,13 +147,40 @@ async function koken(){
     const instructiesContainer = document.createElement('div');
     instructiesContainer.className = 'listHolder instructiesHouder';
 
+  //add a metadata container
+  const metaContainer = document.createElement('div');
+  metaContainer.className = 'metaContainer';
+
+        
+    //add the metadata
+
+    //improve this later (make subobject for metadata, then loop over it to add it)
+    const categorieElement = document.createElement('p');
+    categorieElement.className = 'categorieElement';
+    categorieElement.innerHTML = recept.voorkeur;
+    
+    const kooktijdElement = document.createElement('p');
+    kooktijdElement.className = 'kooktijdElement';
+    kooktijdElement.innerHTML = recept.kooktijd ;
+
+    //add listheaders
+const ingredientenTitel = document.createElement('h3');
+ingredientenTitel.className = 'ingredientenTitel';
+ingredientenTitel.innerHTML = 'Ingredienten';
+
+const instructieTitel = document.createElement('h3');
+instructieTitel.className = 'instructieTitel';
+instructieTitel.innerHTML = 'Instructies';
+
     //add the list for ingredienten
     const ingredientenLijst = document.createElement('ul');
     ingredientenLijst.className = 'ingredientenLijst';
 
-
+    //add the list for Instructies
+    const instructieLijst = document.createElement('ul');
+    instructieLijst.className = 'instructieLijst';
     
-
+    //listitems will be generated later
   
     //add elements to koekGrid
     document.getElementsByClassName('koekGrid')[0].appendChild(meelGrid);
@@ -163,10 +191,54 @@ async function koken(){
     meelGrid.appendChild(receptGrid);
     
     //add receptGrid elememts
+    receptGrid.appendChild(metaContainer);
     receptGrid.appendChild(ingredientenContainer);
     receptGrid.appendChild(instructiesContainer);
 
-    //add listItems (ingredienten, instructies)
+    // add the meta data tot the appropriate container
+ 
+    metaContainer.appendChild(categorieElement);
+    metaContainer.appendChild(kooktijdElement);
+  
+    // add the listTitels
+    ingredientenContainer.appendChild(ingredientenTitel);
+    instructiesContainer.appendChild(instructieTitel);
+
+    //add listItems <ul> (ingredienten, instructies)
+    ingredientenContainer.appendChild(ingredientenLijst);
+    instructiesContainer.appendChild(instructieLijst);
+  
+
+    //ingredienten generate list
+
+    //add the listItems INSTRUCTIES
+
+    const addItemsToListFromArrayFromObject = (sourceArray, list) => {
+      if (!sourceArray) {
+        const errorMessage = 'Deze lijst bestaat nog niet!';
+        const errorP = document.createElement('p');
+        errorP.innerHTML = errorMessage;
+        list.appendChild(errorP);
+        return;
+      }
+      
+      let listItem;
+      const listLength = sourceArray.length;
+      for (let x=0; x <listLength; x++){
+        // create an item for each one
+        listItem = document.createElement('li');
+
+        //add the item text
+        listItem.innerHTML = sourceArray[x];
+
+        //add listItem to the listElement
+        list.appendChild(listItem);
+
+      }
+    }
+    addItemsToListFromArrayFromObject(recept.ingredienten, ingredientenLijst);
+    addItemsToListFromArrayFromObject(recept.instructie, instructieLijst);
+    
   
 
     /*
@@ -178,9 +250,7 @@ async function koken(){
     //write ingredient array as list?
     const listElement = document.createElement('ul');
     listElement.className = "receptList";
-    //loop trough the array.
-    const listLength = recept.ingredienten.length;
-    console.log(listLength)
+
     
     // Add it to the page
     document.getElementsByClassName('koekGrid')[0].appendChild(listContainer);

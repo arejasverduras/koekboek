@@ -58,8 +58,10 @@ button {
 
 .receptGrid {
     display: grid;
-    grid-template-areas: "ingredienten instructies";
-    grid-template-rows: 400px;
+    grid-template-areas: 
+    "metadata metadata"
+    "ingredienten instructies";
+    grid-template-rows: 50px 400px;
 }
 
 .listHolder {
@@ -67,6 +69,14 @@ button {
     background-color: white;
     padding: 20px;
 }
+
+.metaContainer {
+    grid-area: metadata;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
 .ingredientenHouder {
     grid-area: ingredienten;
