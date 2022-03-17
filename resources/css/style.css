@@ -20,31 +20,7 @@ grid-template-rows: 200px 100px 50px 1fr;
 grid-template-columns: 1fr;
 }
 
-.meelGrid {
-    display: grid;
-    grid-area: meelGrid;
-    background-color: white;
-    border-radius: 25px 50px;
-    grid-template-areas: 
-    "receptNaam"
-    "picture"
-    "receptGrid";
-
-    justify-content: center;
-    justify-items: center;
-    margin-top: 50px;
-}
-
-.receptGrid {
-    grid-area: receptGrid;
-    display: grid;
-    grid-template-areas: 
-    "metadata metadata"
-    "ingredienten instructies";
-    grid-template-rows: 50px 400px;
-    background-color: blanchedalmond;
-    
-}
+/* start of header area "head" */
 
 header {
     grid-area: head;
@@ -71,6 +47,7 @@ h3 {
     text-align: center;
 }
 
+/* start of button area "button */
 button {
     margin-top: 20px;
     grid-area: button;
@@ -82,6 +59,8 @@ button {
     border: none;
     border-radius: 25px;
 }
+
+/* loading dots area: "dots" */
 .waitingContainer {
     margin: 20px auto;
     display: flex;
@@ -89,7 +68,6 @@ button {
 }
 
 .dot {
-    
     display: none;
     margin: 20px;
     background-color: brown;
@@ -98,7 +76,43 @@ button {
     border-radius: 50%;
 }
 
+/* start JS generated "meelGrid"area */
 
+.meelGrid {
+    display: grid;
+    grid-area: meelGrid;
+    background-color: white;
+    border-radius: 25px 50px;
+    grid-template-areas: 
+    "receptNaam"
+    "picture"
+    "receptGrid";
+    grid-template-rows: 150px 400px 400px;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+#receptnaam {
+    grid-area: receptnaam;
+    text-align: center;
+}
+
+#meelPicture {
+    max-height: 100%;
+
+}
+
+.receptGrid {
+    grid-area: receptGrid;
+    display: grid;
+    grid-template-areas: 
+    "metadata metadata"
+    "ingredienten instructies";
+    grid-template-rows: 50px 400px;
+    background-color: blanchedalmond;
+    
+}
 
 .listHolder {
     /* might be deleted */
@@ -124,28 +138,7 @@ button {
 };
 
 
-#receptnaam {
-    grid-area: receptnaam;
-    text-align: center;
-}
 
-#ingredienten {
-    grid-area: result;
-    background-color: white;
-}
-
-#picture {
-    display: none;
-    grid-area: picture;
     
-}
-
-#picture img {
-    min-width: 200px;
-    min-height: 200px;
-    max-height: 100%;
-   max-width: 400px;
-}
-
 
 
