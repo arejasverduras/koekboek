@@ -56,6 +56,29 @@ button {
     border-radius: 50%;
 }
 
+.receptGrid {
+    display: grid;
+    grid-template-areas: "ingredienten instructies";
+    grid-template-rows: 400px;
+}
+
+.listHolder {
+    /* might be deleted */
+    background-color: white;
+    padding: 20px;
+}
+
+.ingredientenHouder {
+    grid-area: ingredienten;
+    background-color: greenyellow;
+}
+
+.instructiesHouder {
+    grid-area: instructies;
+    background-color: red;
+};
+
+
 #receptnaam {
     grid-area: receptnaam;
     text-align: center;

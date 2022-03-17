@@ -117,8 +117,9 @@ async function koken(){
     const recept = await kiesRecept(boek);
     const ingred = await toonIngredienten(recept);
 
-    //make changes from here
-
+    
+    //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
+    
     // make a container element 'meelGrid'
     const meelGrid = document.createElement('div');
     meelGrid.className = 'meelGrid';
@@ -135,17 +136,37 @@ async function koken(){
 
     //make ReceptGrid
     const receptGrid = document.createElement('div');
-    receptGrid.id ='receptGrid';
+    receptGrid.className ='receptGrid';
 
-    // Make a container element for the list
+    // Make a container element for the list 'Ingredienten'
+    const ingredientenContainer = document.createElement('div');
+    ingredientenContainer.className = 'listHolder ingredientenHouder';
+
+    //Make a container element for the list 'Instructies'
+    const instructiesContainer = document.createElement('div');
+    instructiesContainer.className = 'listHolder instructiesHouder';
+
+    //add the list for ingredienten
+    const ingredientenLijst = document.createElement('ul');
+    ingredientenLijst.className = 'ingredientenLijst';
+
+
+    
 
   
     //add elements to koekGrid
     document.getElementsByClassName('koekGrid')[0].appendChild(meelGrid);
+    
+    //add meelGrid elements
     meelGrid.appendChild(meelh2);
     meelGrid.appendChild(meelPicture);
     meelGrid.appendChild(receptGrid);
+    
+    //add receptGrid elememts
+    receptGrid.appendChild(ingredientenContainer);
+    receptGrid.appendChild(instructiesContainer);
 
+    //add listItems (ingredienten, instructies)
   
 
     /*
