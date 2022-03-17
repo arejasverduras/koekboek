@@ -43,19 +43,13 @@ function kiesRecept (boek) {
       console.log('\nVanavond eten we: ');
       const result = randomRecept(boek);
       
-      
       const logResult = ()=> {
       console.log('\n\n'+result + '!');
       const receptObject = boek[result];
       resolve (receptObject);
     }
-     
       setTimeout(logResult, 250);
-      
-
     })  
-  
-
   };
   
 
@@ -86,7 +80,6 @@ function loadDot (dot) {
     return new Promise((resolve, reject)=>{
         setTimeout(()=> {
             resolve( dot.style.display='flex');
-           
         }, 500)
     })
 }
@@ -105,9 +98,6 @@ async function koken(){
     const ingredDiv = document.getElementById('ingredienten');
     const picture = document.getElementById('picture');
     const receptSectie = document.getElementById('recept');
-    // ingredDiv.innerHTML = '<div></div>';
-    // firstP.style.display = "none";
-    // picture.style.display= "none";
 
     hideDots(allDots);
     await loadDot(dot1);
@@ -117,7 +107,6 @@ async function koken(){
     const boek = kookboek;
     const recept = await kiesRecept(boek);
     const ingred = await toonIngredienten(recept);
-
     
     //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
 
@@ -238,42 +227,6 @@ instructieTitel.innerHTML = 'Instructies';
     }
     addItemsToListFromArrayFromObject(recept.ingredienten, ingredientenLijst);
     addItemsToListFromArrayFromObject(recept.instructie, instructieLijst);
-    
-  
-
-    /*
-
-
-   
-   const listContainer = ingredDiv;
-
-    //write ingredient array as list?
-    const listElement = document.createElement('ul');
-    listElement.className = "receptList";
-
-    
-    // Add it to the page
-    document.getElementsByClassName('koekGrid')[0].appendChild(listContainer);
-    listContainer.appendChild(listElement);
-    
-    //add the listitems
-    let listItem;
-    for (let x = 0; x < listLength; x++) {
-        // create an item for each one
-        listItem = document.createElement('li');
-
-        // Add the item text
-        listItem.innerHTML = recept.ingredienten[x];
-
-        // Add listItem to the listElement
-        listElement.appendChild(listItem);
-    }
-    
-    
-    picture.innerHTML = `<img src=${recept.picture}>`;
-    picture.style.display = 'grid';
-    receptSectie.style.backgroundColor = 'white';
-    */
 }
 
 

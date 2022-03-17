@@ -4,6 +4,48 @@ body {
 
 }
 
+.koekGrid {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    max-width: 976px;
+    margin: 50px auto;
+    grid-template-areas:
+     "head"
+    "button"
+    "dots"
+    "meelGrid";
+    
+grid-template-rows: 200px 100px 50px 1fr;
+grid-template-columns: 1fr;
+}
+
+.meelGrid {
+    display: grid;
+    grid-area: meelGrid;
+    background-color: white;
+    border-radius: 25px 50px;
+    grid-template-areas: 
+    "receptNaam"
+    "picture"
+    "receptGrid";
+
+    justify-content: center;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.receptGrid {
+    grid-area: receptGrid;
+    display: grid;
+    grid-template-areas: 
+    "metadata metadata"
+    "ingredienten instructies";
+    grid-template-rows: 50px 400px;
+    background-color: blanchedalmond;
+    
+}
+
 header {
     grid-area: head;
     background-color: blanchedalmond;
@@ -56,17 +98,10 @@ button {
     border-radius: 50%;
 }
 
-.receptGrid {
-    display: grid;
-    grid-template-areas: 
-    "metadata metadata"
-    "ingredienten instructies";
-    grid-template-rows: 50px 400px;
-}
+
 
 .listHolder {
     /* might be deleted */
-    background-color: white;
     padding: 20px;
 }
 
@@ -80,12 +115,12 @@ button {
 
 .ingredientenHouder {
     grid-area: ingredienten;
-    background-color: greenyellow;
+    background-color: white;    
 }
 
+
 .instructiesHouder {
-    grid-area: instructies;
-    background-color: red;
+    grid-area: instructies;    
 };
 
 
@@ -114,21 +149,3 @@ button {
 
 
 
-.koekGrid {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-    max-width: 976px;
-    margin: 50px auto;
-    grid-template-areas:
-     "head"
-    "button"
-    "dots"
-    "receptnaam"
-    "picture"
-    "result";
-    
-grid-template-rows: 200px 100px 50px 100px 400px 1fr;
-grid-template-columns: 1fr;
-    
-}
