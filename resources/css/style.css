@@ -99,7 +99,10 @@ button {
 }
 
 #meelPicture {
-    max-height: 100%;
+    grid-area: picture;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 
 }
 
@@ -114,11 +117,6 @@ button {
     
 }
 
-.listHolder {
-    /* might be deleted */
-    padding: 20px;
-}
-
 .metaContainer {
     grid-area: metadata;
     display: flex;
@@ -126,6 +124,10 @@ button {
     align-items: center;
 }
 
+.listHolder {
+    /* might be deleted */
+    padding: 20px;
+}
 
 .ingredientenHouder {
     grid-area: ingredienten;

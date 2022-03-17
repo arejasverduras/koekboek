@@ -94,10 +94,7 @@ const dot2 = document.getElementById('d2');
 const dot3 = document.getElementById('d3');
 
 async function koken(){
-    const firstP = document.getElementById('receptnaam');
-    const ingredDiv = document.getElementById('ingredienten');
-    const picture = document.getElementById('picture');
-    const receptSectie = document.getElementById('recept');
+ 
 
     hideDots(allDots);
     await loadDot(dot1);
@@ -108,11 +105,19 @@ async function koken(){
     const recept = await kiesRecept(boek);
     const ingred = await toonIngredienten(recept);
     
+    const bestaat = document.getElementById('meelGrid');
+    if (bestaat) {
+      document.getElementsByClassName('koekGrid')[0].removeChild(bestaat);
+    }
+
+
     //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
 
     // make a container element 'meelGrid'
     const meelGrid = document.createElement('div');
     meelGrid.className = 'meelGrid';
+    meelGrid.id = 'meelGrid';
+  
 
     //make h2 'receptnaam'
     const meelh2 = document.createElement('h2');
@@ -120,9 +125,14 @@ async function koken(){
     meelh2.innerHTML = '<h2>'+ recept.naam + '</h2>';
 
     //make meelPicture
-    const meelPicture = document.createElement('img');
+    // const meelPicture = document.createElement('img');
+    // meelPicture.id = 'meelPicture';
+    // meelPicture.src = `${recept.picture}`;
+
+    const meelPicture = document.createElement('div');
     meelPicture.id = 'meelPicture';
-    meelPicture.src = `${recept.picture}`;
+    meelPicture.style.backgroundImage = "url("+recept.picture+")";
+
 
     //make ReceptGrid
     const receptGrid = document.createElement('div');
@@ -171,6 +181,7 @@ instructieTitel.innerHTML = 'Instructies';
     
     //listitems will be generated later
   
+
     //add elements to koekGrid
     document.getElementsByClassName('koekGrid')[0].appendChild(meelGrid);
     
