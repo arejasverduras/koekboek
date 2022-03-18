@@ -112,6 +112,8 @@ async function koken(){
 
 
     //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
+    // rewrite this later as some kind of array function / object-?
+    
 
     // make a container element 'meelGrid'
     const meelGrid = document.createElement('div');
