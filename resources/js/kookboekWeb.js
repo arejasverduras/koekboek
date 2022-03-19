@@ -123,12 +123,6 @@ async function koken(){
       //(optional) set id. (paratmer: id)
       //add create element to parent element. parameter: parentelementName
 
-      //make test array, with sub arrays, or objects?
-
-      // const testArray = [
-      //   ['meelGrid', 'div', 'meelGrid', ],[],[]
-      // ]
-
       /*
    const varArray = ['meelsGrid','meelsh2','meelsPicture','receptsGrid','metaContainer'];
    const classNamesArray = ['meelGrid','receptNaam','meelPicture','receptGrid','metaContainer','kooktijdElement'];
@@ -137,9 +131,11 @@ async function koken(){
    const testParent = koekGrid;  
 
 
-  const elementMaker = (constname, elementType, classname, parentNodeClass) =>{
+
+
+  const elementMakerFromArray = (constname, elementType, classname, parentNodeClass) =>{
     let arrayLength = constname.length;
-    let constNamesArray = [];
+    
     for (let x = 0; x < arrayLength; x++){
       
       // let element = constname[x];
@@ -154,8 +150,20 @@ async function koken(){
     }
   }
 
-  // elementMaker ('testGrid', 'div', 'testGrid', koekGrid);
-  elementMaker(varArray, elementTypeArray,classNamesArray, parentNodeClassName);
+    const elementMaker = (elementType, classname, parentNodeClass) =>{
+   
+      let element = document.createElement(elementType);
+      element.className = classname;
+
+      let parent = parentNodeClass;
+      let parentNode = document.getElementsByClassName(parent)[0];
+
+      parentNode.appendChild(element);
+    
+  }
+
+  const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
+  //elementMakerFromArray(varArray, elementTypeArray,classNamesArray, parentNodeClassName);
 
   const meelH2 = document.getElementsByClassName('receptNaam')[0];
   meelH2.innerHTML = recept.naam;
@@ -168,7 +176,6 @@ async function koken(){
     // make a container element 'meelGrid'
     const meelGrid = document.createElement('div');
     meelGrid.className = 'meelGrid';
-    meelGrid.id = 'meelGrid';
   
 
     //make h2 'receptnaam'
@@ -232,7 +239,8 @@ instructieTitel.innerHTML = 'Instructies';
   
 
     //add elements to koekGrid
-    document.getElementsByClassName('koekGrid')[0].appendChild(meelGrid);
+    const koekGrid = document.getElementsByClassName('koekGrid')[0];
+    koekGrid.appendChild(meelGrid);
     
     //add meelGrid elements
     meelGrid.appendChild(meelh2);
