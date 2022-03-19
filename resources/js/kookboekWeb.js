@@ -105,7 +105,7 @@ async function koken(){
     const recept = await kiesRecept(boek);
     const ingred = await toonIngredienten(recept);
     
-    const bestaat = document.getElementById('meelGrid');
+    const bestaat = document.getElementsByClassName('meelGrid')[0];
     if (bestaat) {
       document.getElementsByClassName('koekGrid')[0].removeChild(bestaat);
     }
@@ -129,13 +129,10 @@ async function koken(){
       //   ['meelGrid', 'div', 'meelGrid', ],[],[]
       // ]
 
-  // const koekGrid = document.getElementsByClassName('koekGrid')[0];    
-
-
-   const varArray = ['meelsGrid','meelsh2','meelsPicture','receptsGrid'];
-   const classNamesArray = ['meelGrid','receptNaam','meelPicture','receptGrid'];
-   const elementTypeArray = ['div','h2','div','div'];
-   const parentNodeClassName = ['koekGrid', 'meelGrid', 'meelGrid', 'koekGrid']; 
+   const varArray = ['meelsGrid','meelsh2','meelsPicture','receptsGrid','metaContainer'];
+   const classNamesArray = ['meelGrid','receptNaam','meelPicture','receptGrid','metaContainer','kooktijdElement'];
+   const elementTypeArray = ['div','h2','div','div','div','p','p'];
+   const parentNodeClassName = ['koekGrid', 'meelGrid', 'meelGrid', 'koekGrid','receptGrid']; 
    const testParent = koekGrid;  
 
 
@@ -154,7 +151,6 @@ async function koken(){
 
       parentNode.appendChild(element);
     }
-  
   }
 
   // elementMaker ('testGrid', 'div', 'testGrid', koekGrid);
@@ -178,11 +174,6 @@ async function koken(){
 //     meelh2.id = 'receptNaam'
 //     meelh2.innerHTML = '<h2>'+ recept.naam + '</h2>';
 
-//     //make meelPicture
-//     // const meelPicture = document.createElement('img');
-//     // meelPicture.id = 'meelPicture';
-//     // meelPicture.src = `${recept.picture}`;
-
 //     const meelPicture = document.createElement('div');
 //     meelPicture.id = 'meelPicture';
 //     meelPicture.style.backgroundImage = "url("+recept.picture+")";
@@ -192,6 +183,10 @@ async function koken(){
 //     const receptGrid = document.createElement('div');
 //     receptGrid.className ='receptGrid';
 
+//   //add a metadata container
+//   const metaContainer = document.createElement('div');
+//   metaContainer.className = 'metaContainer';
+
 //     // Make a container element for the list 'Ingredienten'
 //     const ingredientenContainer = document.createElement('div');
 //     ingredientenContainer.className = 'listHolder ingredientenHouder';
@@ -200,9 +195,7 @@ async function koken(){
 //     const instructiesContainer = document.createElement('div');
 //     instructiesContainer.className = 'listHolder instructiesHouder';
 
-//   //add a metadata container
-//   const metaContainer = document.createElement('div');
-//   metaContainer.className = 'metaContainer';
+
 
         
 //     //add the metadata

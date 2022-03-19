@@ -94,11 +94,11 @@ button {
 }
 
 .receptNaam {
-    grid-area: receptnaam;
+    grid-area: receptNaam;
     text-align: center;
 }
 
-#meelPicture {
+.meelPicture {
     grid-area: picture;
     width: 100%;
     background-size: cover;
