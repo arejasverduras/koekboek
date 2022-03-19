@@ -93,7 +93,7 @@ button {
     margin-top: 50px;
 }
 
-#receptnaam {
+.receptNaam {
     grid-area: receptnaam;
     text-align: center;
 }

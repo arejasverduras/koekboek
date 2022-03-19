@@ -113,133 +113,185 @@ async function koken(){
 
     //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
     // rewrite this later as some kind of array function / object-?
-    
 
-    // make a container element 'meelGrid'
-    const meelGrid = document.createElement('div');
-    meelGrid.className = 'meelGrid';
-    meelGrid.id = 'meelGrid';
+    //Function to add elements to create, name and add elements to a page , parentElement
+//Wat is de herhaalde functie?
+      //declare variable name element . parameter: variable name
+      //document.createElement('elementtype'). parameter: element type
+      //give the element a classname. parameter: classname
+      //(optional) set innerHTML. (parameter: innerHTML)
+      //(optional) set id. (paratmer: id)
+      //add create element to parent element. parameter: parentelementName
+
+      //make test array, with sub arrays, or objects?
+
+      // const testArray = [
+      //   ['meelGrid', 'div', 'meelGrid', ],[],[]
+      // ]
+
+  // const koekGrid = document.getElementsByClassName('koekGrid')[0];    
+
+
+   const varArray = ['meelsGrid','meelsh2','meelsPicture','receptsGrid'];
+   const classNamesArray = ['meelGrid','receptNaam','meelPicture','receptGrid'];
+   const elementTypeArray = ['div','h2','div','div'];
+   const parentNodeClassName = ['koekGrid', 'meelGrid', 'meelGrid', 'koekGrid']; 
+   const testParent = koekGrid;  
+
+
+  const elementMaker = (constname, elementType, classname, parentNodeClass) =>{
+    let arrayLength = constname.length;
+    let constNamesArray = [];
+    for (let x = 0; x < arrayLength; x++){
+      
+      // let element = constname[x];
+      // console.log(element);
+      let element = document.createElement(elementType[x]);
+      element.className = classname[x];
+      // constNamesArray.push(element);
+      let parent = parentNodeClass[x];
+      let parentNode = document.getElementsByClassName(parent)[0];
+
+      parentNode.appendChild(element);
+    }
+  
+  }
+
+  // elementMaker ('testGrid', 'div', 'testGrid', koekGrid);
+  elementMaker(varArray, elementTypeArray,classNamesArray, parentNodeClassName);
+
+  const meelH2 = document.getElementsByClassName('receptNaam')[0];
+  meelH2.innerHTML = recept.naam;
+
+  const meelPicture = document.getElementsByClassName('meelPicture')[0];
+  meelPicture.id = 'meelPicture';
+  meelPicture.style.backgroundImage = "url("+recept.picture+")";
+    
+//     // make a container element 'meelGrid'
+//     const meelGrid = document.createElement('div');
+//     meelGrid.className = 'meelGrid';
+//     meelGrid.id = 'meelGrid';
   
 
-    //make h2 'receptnaam'
-    const meelh2 = document.createElement('h2');
-    meelh2.id = 'receptNaam'
-    meelh2.innerHTML = '<h2>'+ recept.naam + '</h2>';
+//     //make h2 'receptnaam'
+//     const meelh2 = document.createElement('h2');
+//     meelh2.id = 'receptNaam'
+//     meelh2.innerHTML = '<h2>'+ recept.naam + '</h2>';
 
-    //make meelPicture
-    // const meelPicture = document.createElement('img');
-    // meelPicture.id = 'meelPicture';
-    // meelPicture.src = `${recept.picture}`;
+//     //make meelPicture
+//     // const meelPicture = document.createElement('img');
+//     // meelPicture.id = 'meelPicture';
+//     // meelPicture.src = `${recept.picture}`;
 
-    const meelPicture = document.createElement('div');
-    meelPicture.id = 'meelPicture';
-    meelPicture.style.backgroundImage = "url("+recept.picture+")";
+//     const meelPicture = document.createElement('div');
+//     meelPicture.id = 'meelPicture';
+//     meelPicture.style.backgroundImage = "url("+recept.picture+")";
 
 
-    //make ReceptGrid
-    const receptGrid = document.createElement('div');
-    receptGrid.className ='receptGrid';
+//     //make ReceptGrid
+//     const receptGrid = document.createElement('div');
+//     receptGrid.className ='receptGrid';
 
-    // Make a container element for the list 'Ingredienten'
-    const ingredientenContainer = document.createElement('div');
-    ingredientenContainer.className = 'listHolder ingredientenHouder';
+//     // Make a container element for the list 'Ingredienten'
+//     const ingredientenContainer = document.createElement('div');
+//     ingredientenContainer.className = 'listHolder ingredientenHouder';
 
-    //Make a container element for the list 'Instructies'
-    const instructiesContainer = document.createElement('div');
-    instructiesContainer.className = 'listHolder instructiesHouder';
+//     //Make a container element for the list 'Instructies'
+//     const instructiesContainer = document.createElement('div');
+//     instructiesContainer.className = 'listHolder instructiesHouder';
 
-  //add a metadata container
-  const metaContainer = document.createElement('div');
-  metaContainer.className = 'metaContainer';
+//   //add a metadata container
+//   const metaContainer = document.createElement('div');
+//   metaContainer.className = 'metaContainer';
 
         
-    //add the metadata
+//     //add the metadata
 
-    //improve this later (make subobject for metadata, then loop over it to add it)
-    const categorieElement = document.createElement('p');
-    categorieElement.className = 'categorieElement';
-    categorieElement.innerHTML = recept.voorkeur;
+//     //improve this later (make subobject for metadata, then loop over it to add it)
+//     const categorieElement = document.createElement('p');
+//     categorieElement.className = 'categorieElement';
+//     categorieElement.innerHTML = recept.voorkeur;
     
-    const kooktijdElement = document.createElement('p');
-    kooktijdElement.className = 'kooktijdElement';
-    kooktijdElement.innerHTML = recept.kooktijd ;
+//     const kooktijdElement = document.createElement('p');
+//     kooktijdElement.className = 'kooktijdElement';
+//     kooktijdElement.innerHTML = recept.kooktijd ;
 
-    //add listheaders
-const ingredientenTitel = document.createElement('h3');
-ingredientenTitel.className = 'ingredientenTitel';
-ingredientenTitel.innerHTML = 'Ingredienten';
+//     //add listheaders
+// const ingredientenTitel = document.createElement('h3');
+// ingredientenTitel.className = 'ingredientenTitel';
+// ingredientenTitel.innerHTML = 'Ingredienten';
 
-const instructieTitel = document.createElement('h3');
-instructieTitel.className = 'instructieTitel';
-instructieTitel.innerHTML = 'Instructies';
+// const instructieTitel = document.createElement('h3');
+// instructieTitel.className = 'instructieTitel';
+// instructieTitel.innerHTML = 'Instructies';
 
-    //add the list for ingredienten
-    const ingredientenLijst = document.createElement('ul');
-    ingredientenLijst.className = 'ingredientenLijst';
+//     //add the list for ingredienten
+//     const ingredientenLijst = document.createElement('ul');
+//     ingredientenLijst.className = 'ingredientenLijst';
 
-    //add the list for Instructies
-    const instructieLijst = document.createElement('ul');
-    instructieLijst.className = 'instructieLijst';
+//     //add the list for Instructies
+//     const instructieLijst = document.createElement('ul');
+//     instructieLijst.className = 'instructieLijst';
     
-    //listitems will be generated later
+//     //listitems will be generated later
   
 
-    //add elements to koekGrid
-    document.getElementsByClassName('koekGrid')[0].appendChild(meelGrid);
+//     //add elements to koekGrid
+//     document.getElementsByClassName('koekGrid')[0].appendChild(meelGrid);
     
-    //add meelGrid elements
-    meelGrid.appendChild(meelh2);
-    meelGrid.appendChild(meelPicture);
-    meelGrid.appendChild(receptGrid);
+//     //add meelGrid elements
+//     meelGrid.appendChild(meelh2);
+//     meelGrid.appendChild(meelPicture);
+//     meelGrid.appendChild(receptGrid);
     
-    //add receptGrid elememts
-    receptGrid.appendChild(metaContainer);
-    receptGrid.appendChild(ingredientenContainer);
-    receptGrid.appendChild(instructiesContainer);
+//     //add receptGrid elememts
+//     receptGrid.appendChild(metaContainer);
+//     receptGrid.appendChild(ingredientenContainer);
+//     receptGrid.appendChild(instructiesContainer);
 
-    // add the meta data tot the appropriate container
+//     // add the meta data tot the appropriate container
  
-    metaContainer.appendChild(categorieElement);
-    metaContainer.appendChild(kooktijdElement);
+//     metaContainer.appendChild(categorieElement);
+//     metaContainer.appendChild(kooktijdElement);
   
-    // add the listTitels
-    ingredientenContainer.appendChild(ingredientenTitel);
-    instructiesContainer.appendChild(instructieTitel);
+//     // add the listTitels
+//     ingredientenContainer.appendChild(ingredientenTitel);
+//     instructiesContainer.appendChild(instructieTitel);
 
-    //add listItems <ul> (ingredienten, instructies)
-    ingredientenContainer.appendChild(ingredientenLijst);
-    instructiesContainer.appendChild(instructieLijst);
+//     //add listItems <ul> (ingredienten, instructies)
+//     ingredientenContainer.appendChild(ingredientenLijst);
+//     instructiesContainer.appendChild(instructieLijst);
   
 
-    //ingredienten generate list
+//     //ingredienten generate list
 
-    //add the listItems INSTRUCTIES
+//     //add the listItems INSTRUCTIES
 
-    const addItemsToListFromArrayFromObject = (sourceArray, list) => {
-      if (!sourceArray) {
-        const errorMessage = 'Deze lijst bestaat nog niet!';
-        const errorP = document.createElement('p');
-        errorP.innerHTML = errorMessage;
-        list.appendChild(errorP);
-        return;
-      }
+//     const addItemsToListFromArrayFromObject = (sourceArray, list) => {
+//       if (!sourceArray) {
+//         const errorMessage = 'Deze lijst bestaat nog niet!';
+//         const errorP = document.createElement('p');
+//         errorP.innerHTML = errorMessage;
+//         list.appendChild(errorP);
+//         return;
+//       }
       
-      let listItem;
-      const listLength = sourceArray.length;
-      for (let x=0; x <listLength; x++){
-        // create an item for each one
-        listItem = document.createElement('li');
+//       let listItem;
+//       const listLength = sourceArray.length;
+//       for (let x=0; x <listLength; x++){
+//         // create an item for each one
+//         listItem = document.createElement('li');
 
-        //add the item text
-        listItem.innerHTML = sourceArray[x];
+//         //add the item text
+//         listItem.innerHTML = sourceArray[x];
 
-        //add listItem to the listElement
-        list.appendChild(listItem);
+//         //add listItem to the listElement
+//         list.appendChild(listItem);
 
-      }
-    }
-    addItemsToListFromArrayFromObject(recept.ingredienten, ingredientenLijst);
-    addItemsToListFromArrayFromObject(recept.instructie, instructieLijst);
+//       }
+//     }
+//     addItemsToListFromArrayFromObject(recept.ingredienten, ingredientenLijst);
+//     addItemsToListFromArrayFromObject(recept.instructie, instructieLijst);
 }
 
 
