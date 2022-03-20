@@ -191,7 +191,7 @@ async function koken(){
 
   //Call functions to Add elements
   //add meelGrid + elements  
-  const prevDiv = elementMaker('div', 'prevDiv','koekGrid');
+
   const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
 //add next button 
 const nextButton = elementMaker('button','nextButton','koekGrid',null,'NEXT!');
@@ -245,6 +245,8 @@ scrollTo.scrollIntoView({behavior:"smooth"});
 
   
   // buttonElement.addEventListener('click', makeFlashy(pageTitle));
+
+  nextButton.addEventListener('click',koken);
 }
 
 //button event listener to load 'koken'

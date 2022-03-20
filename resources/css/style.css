@@ -15,9 +15,10 @@ body {
     "button"
     "dots"
     "meelGrid"
+    "nextButton"
     "footer";
     
-grid-template-rows: 200px 100px 50px 1fr 200px;
+grid-template-rows: 200px 100px 50px 1fr 140px 200px;
 grid-template-columns: 1fr;
 row-gap: 20px;
 column-gap: 10%;
@@ -66,6 +67,7 @@ button {
     border: 1px solid black;
     border-radius: 25px;
     box-shadow: -3px 5px grey;
+    margin: 0;
 }
 
 /* button:hover {
@@ -99,9 +101,7 @@ button:active {
 
 /* start JS generated "meelGrid"area */
 
-.prevDiv {
-    grid-area: prevDiv;
-}
+
 
 .meelGrid {
     display: grid;
@@ -111,9 +111,9 @@ button:active {
     grid-template-areas: 
     "receptNaam"
     "picture"
-    "receptGrid"
-    "nextButton";
-    grid-template-rows: 75px 400px 500px 100px;
+    "receptGrid";
+    
+    grid-template-rows: 75px 400px 500px;
     justify-content: center;
     justify-items: center;
     /* margin-top: 50px; */
@@ -126,6 +126,14 @@ button:active {
     width: 200px;
     text-transform: uppercase;
     font-style:oblique;
+    margin: 20px auto;
+}
+
+.nextButton:active {
+    position: relative;
+    top: 3px;
+    left: -5px;
+    box-shadow: none;
 }
 
 .receptNaam {
