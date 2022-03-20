@@ -10,7 +10,7 @@ const generateRGBColor = () =>{
     return rgb;
 }
 
-let color = generateRGBColor();
+// let color = generateRGBColor();
 
 //two
 //set the element to change to a varibale
@@ -18,17 +18,34 @@ let element = document.getElementsByTagName('h1')[0];
 
 //three
 //write a function that changes the variable style to the random color
-const changeColor = (element,color)=>{
-    element.style.color = "rgb("+color+")";
+function changeColor (element) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            let newColor = generateRGBColor();
+            resolve (element.style.color = "rgb("+newColor+")");
+        },500)
+
+      
+    })
+
+    
 }
 
-changeColor(element,color);
+async function makeFlashy (){
+    for(let x = 0; x<10000;x++) {
+    await changeColor(element);
+    }
+}
+
+makeFlashy();
+
+
+
+
 
 //four
 //write a loop that keeps repeating this function
-for (let x = 0;x>0;x++) {
-    setTimeout(changeColor,500);
-}
+
 
 
 //five
