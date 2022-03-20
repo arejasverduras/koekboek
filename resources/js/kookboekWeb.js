@@ -149,8 +149,8 @@ async function koken(){
       parentNode.appendChild(element);
     }
   }
-
-    const elementMaker = (elementType, classname, parentNodeClass) =>{
+*/
+    const elementMaker = (elementType, classname, parentNodeClass, id, content, backgroundPicture) =>{
    
       let element = document.createElement(elementType);
       element.className = classname;
@@ -158,43 +158,35 @@ async function koken(){
       let parent = parentNodeClass;
       let parentNode = document.getElementsByClassName(parent)[0];
 
+      if (id) {
+        element.id = id;
+      }
+
+      if (content) {
+        element.innerHTML = content;
+      }
+
+      if (backgroundPicture) {
+        element.style.backgroundImage = "url("+backgroundPicture+")";
+      }
+
       parentNode.appendChild(element);
+      return element;
     
   }
-
+  //add meelGrid + elements  
   const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
-  //elementMakerFromArray(varArray, elementTypeArray,classNamesArray, parentNodeClassName);
-
-  const meelH2 = document.getElementsByClassName('receptNaam')[0];
-  meelH2.innerHTML = recept.naam;
-
-  const meelPicture = document.getElementsByClassName('meelPicture')[0];
-  meelPicture.id = 'meelPicture';
-  meelPicture.style.backgroundImage = "url("+recept.picture+")";
-  */
-    
-    // make a container element 'meelGrid'
-    const meelGrid = document.createElement('div');
-    meelGrid.className = 'meelGrid';
+  const meelH2 = elementMaker('h2','receptNaam','meelGrid',null,recept.naam);
+  const meelPicture = elementMaker('div','meelPicture','meelGrid','meelPicture',null,recept.picture);
   
+  //add receptGrid + elements
+  const receptGrid = elementMaker('div','receptGrid','meelGrid');
+  const metaContainer = elementMaker('div','metaContainer','receptGrid');
 
-    //make h2 'receptnaam'
-    const meelh2 = document.createElement('h2');
-    meelh2.id = 'receptNaam'
-    meelh2.innerHTML = '<h2>'+ recept.naam + '</h2>';
-
-    const meelPicture = document.createElement('div');
-    meelPicture.className = 'meelPicture';
-    meelPicture.style.backgroundImage = "url("+recept.picture+")";
-
-
-    //make ReceptGrid
-    const receptGrid = document.createElement('div');
-    receptGrid.className ='receptGrid';
-
+    
   //add a metadata container
-  const metaContainer = document.createElement('div');
-  metaContainer.className = 'metaContainer';
+  // const metaContainer = document.createElement('div');
+  // metaContainer.className = 'metaContainer';
 
     // Make a container element for the list 'Ingredienten'
     const ingredientenContainer = document.createElement('div');
@@ -239,16 +231,12 @@ instructieTitel.innerHTML = 'Instructies';
   
 
     //add elements to koekGrid
-    const koekGrid = document.getElementsByClassName('koekGrid')[0];
-    koekGrid.appendChild(meelGrid);
     
-    //add meelGrid elements
-    meelGrid.appendChild(meelh2);
-    meelGrid.appendChild(meelPicture);
-    meelGrid.appendChild(receptGrid);
+    
+    
     
     //add receptGrid elememts
-    receptGrid.appendChild(metaContainer);
+    // receptGrid.appendChild(metaContainer);
     receptGrid.appendChild(ingredientenContainer);
     receptGrid.appendChild(instructiesContainer);
 
