@@ -245,8 +245,14 @@ scrollTo.scrollIntoView({behavior:"smooth"});
 
   
   // buttonElement.addEventListener('click', makeFlashy(pageTitle));
+function nextKoken (){
+  const scrollTarget = document.getElementsByClassName('waitingContainer')[0];
+  scrollTarget.scrollIntoView({behavior:"smooth"});
+  koken();
+}
 
-  nextButton.addEventListener('click',koken);
+
+  nextButton.addEventListener('click',nextKoken);
 }
 
 //button event listener to load 'koken'
