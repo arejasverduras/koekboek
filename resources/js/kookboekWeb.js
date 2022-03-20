@@ -182,76 +182,25 @@ async function koken(){
   //add receptGrid + elements
   const receptGrid = elementMaker('div','receptGrid','meelGrid');
   const metaContainer = elementMaker('div','metaContainer','receptGrid');
-    
+  
+  //improve this later (make subobject for metadata, then loop over it to add it)
   //add the metadata
   const categorieElement = elementMaker('p','categorieElement','metaContainer',null,recept.voorkeur);
   const kooktijdElement = elementMaker('p','kooktijdElement','metaContainer',null,recept.kooktijd);
 
-    //improve this later (make subobject for metadata, then loop over it to add it)
-    // const categorieElement = document.createElement('p');
-    // categorieElement.className = 'categorieElement';
-    // categorieElement.innerHTML = recept.voorkeur;
-    
-    // const kooktijdElement = document.createElement('p');
-    // kooktijdElement.className = 'kooktijdElement';
-    // kooktijdElement.innerHTML = recept.kooktijd ;
+  //Make container elements for the lists 'ingredienten, instructies'
+  const ingredientenContainer = elementMaker('div','listHolder ingredientenHouder','receptGrid');
+  const instructiesContainer = elementMaker('div','listHolder instructiesHouder','receptGrid');  
 
+  //add listheaders
+  const ingredientenTitel = elementMaker('h3','ingredientenTitel','ingredientenHouder',null,'Ingredienten');
+  const instructieTitel = elementMaker('h3','instructieTitel','instructiesHouder',null,'Instructies');
 
-    // Make a container element for the list 'Ingredienten'
-    const ingredientenContainer = document.createElement('div');
-    ingredientenContainer.className = 'listHolder ingredientenHouder';
+  //add the list elements
+  const ingredientenLijst = elementMaker('ul','ingredientenLijst','ingredientenHouder');
+  const instructieLijst = elementMaker('ul','instructieLijst','instructiesHouder');
 
-    //Make a container element for the list 'Instructies'
-    const instructiesContainer = document.createElement('div');
-    instructiesContainer.className = 'listHolder instructiesHouder';
-
-
-
-        
-
-
-    //add listheaders
-const ingredientenTitel = document.createElement('h3');
-ingredientenTitel.className = 'ingredientenTitel';
-ingredientenTitel.innerHTML = 'Ingredienten';
-
-const instructieTitel = document.createElement('h3');
-instructieTitel.className = 'instructieTitel';
-instructieTitel.innerHTML = 'Instructies';
-
-    //add the list for ingredienten
-    const ingredientenLijst = document.createElement('ul');
-    ingredientenLijst.className = 'ingredientenLijst';
-
-    //add the list for Instructies
-    const instructieLijst = document.createElement('ul');
-    instructieLijst.className = 'instructieLijst';
-    
-    //listitems will be generated later
-  
-    // add the meta data tot the appropriate container
- 
-    // metaContainer.appendChild(categorieElement);
-    // metaContainer.appendChild(kooktijdElement);
-
-    receptGrid.appendChild(ingredientenContainer);
-    receptGrid.appendChild(instructiesContainer);
-
-
-  
-    // add the listTitels
-    ingredientenContainer.appendChild(ingredientenTitel);
-    instructiesContainer.appendChild(instructieTitel);
-
-    //add listItems <ul> (ingredienten, instructies)
-    ingredientenContainer.appendChild(ingredientenLijst);
-    instructiesContainer.appendChild(instructieLijst);
-  
-
-    //ingredienten generate list
-
-    //add the listItems INSTRUCTIES
-
+    //Generate & Add the listItems
     const addItemsToListFromArrayFromObject = (sourceArray, list) => {
       if (!sourceArray) {
         const errorMessage = 'Deze lijst bestaat nog niet!';
@@ -272,14 +221,11 @@ instructieTitel.innerHTML = 'Instructies';
 
         //add listItem to the listElement
         list.appendChild(listItem);
-
       }
     }
     addItemsToListFromArrayFromObject(recept.ingredienten, ingredientenLijst);
     addItemsToListFromArrayFromObject(recept.instructie, instructieLijst);
 }
-
-
 
 //button event listener to load 'koken'
 buttonElement.addEventListener('click', koken);
