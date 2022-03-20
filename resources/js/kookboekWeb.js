@@ -232,6 +232,14 @@ scrollTo.scrollIntoView({behavior:"smooth"});
   //makeFlashy!
   makeFlashy(footerMessage);
 
+  // function maakReceptFlashy (){
+  //   const getReceptNaam = document.getElementsByClassName('receptNaam')[0];
+  // makeFlashy(getReceptNaam);
+  // }
+
+  // meelGrid.addEventListener('click', maakReceptFlashy);
+
+  
   // buttonElement.addEventListener('click', makeFlashy(pageTitle));
 }
 
