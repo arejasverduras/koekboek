@@ -93,6 +93,8 @@ const dot1 = document.getElementById('d1');
 const dot2 = document.getElementById('d2');
 const dot3 = document.getElementById('d3');
 
+const pageTitle = document.getElementById('title');
+
 async function koken(){
  
 
@@ -221,6 +223,10 @@ async function koken(){
 
   const footer = elementMaker('div','footer','koekGrid');
   const footerMessage = elementMaker('h4','footerMessage','footer',null,'Eet smakelijk!');
+
+  makeFlashy(footerMessage);
+
+  // buttonElement.addEventListener('click', makeFlashy(pageTitle));
 }
 
 //button event listener to load 'koken'

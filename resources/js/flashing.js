@@ -9,9 +9,6 @@ const generateRGBColor = () =>{
     console.log(rgb);
     return rgb;
 }
-
-// let color = generateRGBColor();
-
 //two
 //set the element to change to a varibale
 let element = document.getElementsByTagName('h1')[0];
@@ -24,32 +21,17 @@ function changeColor (element) {
             let newColor = generateRGBColor();
             resolve (element.style.color = "rgb("+newColor+")");
         },500)
-
-      
     })
-
-    
 }
 
-async function makeFlashy (){
+async function makeFlashy (what){
     for(let x = 0; x<10000;x++) {
-    await changeColor(element);
+    await changeColor(what);
     }
 }
 
-makeFlashy();
+makeFlashy(element);
 
-
-
-
-
-//four
-//write a loop that keeps repeating this function
-
-
-
-//five
-// create a delay between loop iterations
 
 //six
 //export this function

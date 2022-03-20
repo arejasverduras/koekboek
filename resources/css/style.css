@@ -67,9 +67,9 @@ button {
     box-shadow: -3px 5px grey;
 }
 
-button:hover {
+/* button:hover {
   
-}
+} */
 
 button:active {
     position: relative;
