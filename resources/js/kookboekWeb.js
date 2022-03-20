@@ -212,7 +212,7 @@ async function koken(){
 
   //add the list elements
   const ingredientenLijst = elementMaker('ul','ingredientenLijst','ingredientenHouder');
-  const instructieLijst = elementMaker('ul','instructieLijst','instructiesHouder');
+  const instructieLijst = elementMaker('ol','instructieLijst','instructiesHouder');
 
 
     //call the listmaker

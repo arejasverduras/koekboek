@@ -133,6 +133,7 @@ button {
 .listHolder {
     /* might be deleted */
     padding: 20px;
+    line-height: 2em;
 }
 
 .ingredientenHouder {
@@ -157,10 +158,7 @@ button {
 .ingredientenLijst {
 
 }
-
-.instructieLijst {
-
-} */
+*/
 
 /* Footer */
 .footer {
