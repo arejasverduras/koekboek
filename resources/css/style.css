@@ -8,18 +8,17 @@ body {
     display: grid;
     justify-content: center;
     justify-items: center;
-    align-items: center;
     max-width: 976px;
     margin: 50px auto;
     grid-template-areas:
-     "head head head"
-    "button button button"
-    "dots dots dots"
-    "prevDiv meelGrid nextButton"
-    "footer footer footer";
+     "head"
+    "button"
+    "dots"
+    "meelGrid"
+    "footer";
     
 grid-template-rows: 200px 100px 50px 1fr 200px;
-grid-template-columns: 1fr 6fr 1fr;
+grid-template-columns: 1fr;
 row-gap: 20px;
 column-gap: 10%;
 }
@@ -112,8 +111,9 @@ button:active {
     grid-template-areas: 
     "receptNaam"
     "picture"
-    "receptGrid";
-    grid-template-rows: 75px 400px 500px;
+    "receptGrid"
+    "nextButton";
+    grid-template-rows: 75px 400px 500px 100px;
     justify-content: center;
     justify-items: center;
     /* margin-top: 50px; */
