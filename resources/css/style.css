@@ -59,10 +59,25 @@ button {
     height: 100px;
     background-color: white;
     font-size: 1.5rem;
-    color: black;
-    border: none;
+    /* text-shadow: black -1px -1px; */
+   
+    border: 1px solid black;
     border-radius: 25px;
+    box-shadow: -3px 5px grey;
 }
+
+button:hover {
+  
+}
+
+button:active {
+    position: relative;
+    top: 3px;
+    left: -5px;
+    box-shadow: none;
+}
+
+
 
 /* loading dots area: "dots" */
 .waitingContainer {
