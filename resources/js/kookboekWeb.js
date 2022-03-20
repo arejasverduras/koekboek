@@ -224,6 +224,12 @@ async function koken(){
   const footer = elementMaker('div','footer','koekGrid');
   const footerMessage = elementMaker('h4','footerMessage','footer',null,'Eet smakelijk!');
 
+//scroll into view
+const scrollTo = document.getElementsByClassName('meelGrid')[0];
+scrollTo.scrollIntoView({behavior:"smooth"});
+
+
+  //makeFlashy!
   makeFlashy(footerMessage);
 
   // buttonElement.addEventListener('click', makeFlashy(pageTitle));
