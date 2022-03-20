@@ -14,9 +14,10 @@ body {
      "head"
     "button"
     "dots"
-    "meelGrid";
+    "meelGrid"
+    "footer";
     
-grid-template-rows: 200px 100px 50px 1fr;
+grid-template-rows: 200px 100px 50px 1fr 200px;
 grid-template-columns: 1fr;
 }
 
@@ -141,6 +142,29 @@ button {
     grid-area: instructies;
     background-color: coral;    
 };
+
+/* .ingredientenTitel {
+    
+}
+
+.instructieTitel {
+
+}
+
+.ingredientenLijst {
+
+}
+
+.instructieLijst {
+
+} */
+
+/* Footer */
+.footer {
+    grid-area: footer;
+    background-color: blanchedalmond;
+    width: 100%;
+}
 
 
 

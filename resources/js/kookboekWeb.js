@@ -149,7 +149,8 @@ async function koken(){
       parentNode.appendChild(element);
     }
   }
-*/
+*/  
+  //generate HTML elements & add them to the page
     const elementMaker = (elementType, classname, parentNodeClass, id, content, backgroundPicture) =>{
    
       let element = document.createElement(elementType);
@@ -174,6 +175,32 @@ async function koken(){
       return element;
     
   }
+
+   //Generate & Add listItems
+   const addItemsToListFromArrayFromObject = (sourceArray, list) => {
+    if (!sourceArray) {
+      const errorMessage = 'Deze lijst bestaat nog niet!';
+      const errorP = document.createElement('p');
+      errorP.innerHTML = errorMessage;
+      list.appendChild(errorP);
+      return;
+    }
+    
+    let listItem;
+    const listLength = sourceArray.length;
+    for (let x=0; x <listLength; x++){
+      // create an item for each one
+      listItem = document.createElement('li');
+
+      //add the item text
+      listItem.innerHTML = sourceArray[x];
+
+      //add listItem to the listElement
+      list.appendChild(listItem);
+    }
+  }
+
+  //Call functions to Add elements
   //add meelGrid + elements  
   const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
   const meelH2 = elementMaker('h2','receptNaam','meelGrid',null,recept.naam);
@@ -200,31 +227,13 @@ async function koken(){
   const ingredientenLijst = elementMaker('ul','ingredientenLijst','ingredientenHouder');
   const instructieLijst = elementMaker('ul','instructieLijst','instructiesHouder');
 
-    //Generate & Add the listItems
-    const addItemsToListFromArrayFromObject = (sourceArray, list) => {
-      if (!sourceArray) {
-        const errorMessage = 'Deze lijst bestaat nog niet!';
-        const errorP = document.createElement('p');
-        errorP.innerHTML = errorMessage;
-        list.appendChild(errorP);
-        return;
-      }
-      
-      let listItem;
-      const listLength = sourceArray.length;
-      for (let x=0; x <listLength; x++){
-        // create an item for each one
-        listItem = document.createElement('li');
 
-        //add the item text
-        listItem.innerHTML = sourceArray[x];
-
-        //add listItem to the listElement
-        list.appendChild(listItem);
-      }
-    }
+    //call the listmaker
     addItemsToListFromArrayFromObject(recept.ingredienten, ingredientenLijst);
     addItemsToListFromArrayFromObject(recept.instructie, instructieLijst);
+
+  const footer = elementMaker('div','footer','koekGrid');
+  const footerMessage = elementMaker('h4','footerMessage','footer',null,'Eet smakelijk!');
 }
 
 //button event listener to load 'koken'
