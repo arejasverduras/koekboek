@@ -14,7 +14,7 @@ const kookboek = {
       voorkeur: 'vegan',
       kooktijd: 10, 
       categorie: 'salade',
-      picture: "./resources/images/"
+      picture: "./resources/images/bord-geen-fotores.png"
     },
     3: {
       naam: 'Shakshuka',
@@ -191,7 +191,11 @@ async function koken(){
 
   //Call functions to Add elements
   //add meelGrid + elements  
+  const prevDiv = elementMaker('div', 'prevDiv','koekGrid');
   const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
+//add next button 
+const nextButton = elementMaker('button','nextButton','koekGrid',null,'NEXT!');
+
   const meelH2 = elementMaker('h2','receptNaam','meelGrid',null,recept.naam);
   const meelPicture = elementMaker('div','meelPicture','meelGrid','meelPicture',null,recept.picture);
   

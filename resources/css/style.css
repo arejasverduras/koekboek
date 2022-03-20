@@ -8,18 +8,20 @@ body {
     display: grid;
     justify-content: center;
     justify-items: center;
+    align-items: center;
     max-width: 976px;
     margin: 50px auto;
     grid-template-areas:
-     "head"
-    "button"
-    "dots"
-    "meelGrid"
-    "footer";
+     "head head head"
+    "button button button"
+    "dots dots dots"
+    "prevDiv meelGrid nextButton"
+    "footer footer footer";
     
 grid-template-rows: 200px 100px 50px 1fr 200px;
-grid-template-columns: 1fr;
+grid-template-columns: 1fr 6fr 1fr;
 row-gap: 20px;
+column-gap: 10%;
 }
 
 /* start of header area "head" */
@@ -98,6 +100,10 @@ button:active {
 
 /* start JS generated "meelGrid"area */
 
+.prevDiv {
+    grid-area: prevDiv;
+}
+
 .meelGrid {
     display: grid;
     grid-area: meelGrid;
@@ -113,6 +119,13 @@ button:active {
     /* margin-top: 50px; */
     border: 1px solid black;
     box-shadow: -15px 15px grey;
+}
+
+.nextButton {
+    grid-area: nextButton;
+    width: 200px;
+    text-transform: uppercase;
+    font-style:oblique;
 }
 
 .receptNaam {
