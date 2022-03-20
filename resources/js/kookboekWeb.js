@@ -10,7 +10,7 @@ const kookboek = {
       },
     2: {
       naam: 'Frisse Salade',
-      ingredienten: ['sla', 'tomaat', 'ui'],
+      ingredienten: ['sla', 'tomaat', 'avocado'],
       voorkeur: 'vegan',
       kooktijd: 10, 
       categorie: 'salade',
@@ -38,13 +38,13 @@ const kookboek = {
 
 function kiesRecept (boek) {
     return new Promise((resolve, reject)=>{
-      console.log('\nHet boek wordt opengeslagen');
-      console.log('\nHet bloek bladert uit zichzelf');
-      console.log('\nVanavond eten we: ');
+      // console.log('\nHet boek wordt opengeslagen');
+      // console.log('\nHet bloek bladert uit zichzelf');
+      // console.log('\nVanavond eten we: ');
       const result = randomRecept(boek);
       
       const logResult = ()=> {
-      console.log('\n\n'+result + '!');
+      // console.log('\n\n'+result + '!');
       const receptObject = boek[result];
       resolve (receptObject);
     }
@@ -57,7 +57,7 @@ function kiesRecept (boek) {
   function toonIngredienten (recept) {
     return new Promise((resolve, reject)=>{
       
-      console.log('\nDe ingredienten zijn: ')
+      console.log('\nDe ingredienten zijn: ');
       setTimeout(()=>{
         
         console.log(recept.ingredienten);
@@ -116,17 +116,7 @@ async function koken(){
     }
 
 
-    //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
-    // rewrite this later as some kind of array function / object-?
-
-    //Function to add elements to create, name and add elements to a page , parentElement
-//Wat is de herhaalde functie?
-      //declare variable name element . parameter: variable name
-      //document.createElement('elementtype'). parameter: element type
-      //give the element a classname. parameter: classname
-      //(optional) set innerHTML. (parameter: innerHTML)
-      //(optional) set id. (paratmer: id)
-      //add create element to parent element. parameter: parentelementName
+    //GENERATE && ADD THE SELECTED RECEPeh TO THE GRID
 
       /*
 
