@@ -105,10 +105,17 @@ async function koken(){
     const recept = await kiesRecept(boek);
     const ingred = await toonIngredienten(recept);
     
+  const existingFooter = document.getElementsByClassName('footer')[0];
+  if (existingFooter){
+    document.getElementsByClassName('koekGrid')[0].removeChild(existingFooter);
+  }
+
     const bestaat = document.getElementsByClassName('meelGrid')[0];
     if (bestaat) {
       document.getElementsByClassName('koekGrid')[0].removeChild(bestaat);
     }
+
+
 
 
     //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
