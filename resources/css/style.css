@@ -38,6 +38,7 @@ header {
 h1 {
   text-transform: uppercase;
   font-style: oblique;  
+  color: rgb(23,88,25);
 }
 
 header p {
