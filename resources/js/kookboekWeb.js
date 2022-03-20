@@ -182,11 +182,20 @@ async function koken(){
   //add receptGrid + elements
   const receptGrid = elementMaker('div','receptGrid','meelGrid');
   const metaContainer = elementMaker('div','metaContainer','receptGrid');
-
     
-  //add a metadata container
-  // const metaContainer = document.createElement('div');
-  // metaContainer.className = 'metaContainer';
+  //add the metadata
+  const categorieElement = elementMaker('p','categorieElement','metaContainer',null,recept.voorkeur);
+  const kooktijdElement = elementMaker('p','kooktijdElement','metaContainer',null,recept.kooktijd);
+
+    //improve this later (make subobject for metadata, then loop over it to add it)
+    // const categorieElement = document.createElement('p');
+    // categorieElement.className = 'categorieElement';
+    // categorieElement.innerHTML = recept.voorkeur;
+    
+    // const kooktijdElement = document.createElement('p');
+    // kooktijdElement.className = 'kooktijdElement';
+    // kooktijdElement.innerHTML = recept.kooktijd ;
+
 
     // Make a container element for the list 'Ingredienten'
     const ingredientenContainer = document.createElement('div');
@@ -199,16 +208,7 @@ async function koken(){
 
 
         
-    //add the metadata
 
-    //improve this later (make subobject for metadata, then loop over it to add it)
-    const categorieElement = document.createElement('p');
-    categorieElement.className = 'categorieElement';
-    categorieElement.innerHTML = recept.voorkeur;
-    
-    const kooktijdElement = document.createElement('p');
-    kooktijdElement.className = 'kooktijdElement';
-    kooktijdElement.innerHTML = recept.kooktijd ;
 
     //add listheaders
 const ingredientenTitel = document.createElement('h3');
@@ -229,21 +229,15 @@ instructieTitel.innerHTML = 'Instructies';
     
     //listitems will be generated later
   
+    // add the meta data tot the appropriate container
+ 
+    // metaContainer.appendChild(categorieElement);
+    // metaContainer.appendChild(kooktijdElement);
 
-    //add elements to koekGrid
-    
-    
-    
-    
-    //add receptGrid elememts
-    // receptGrid.appendChild(metaContainer);
     receptGrid.appendChild(ingredientenContainer);
     receptGrid.appendChild(instructiesContainer);
 
-    // add the meta data tot the appropriate container
- 
-    metaContainer.appendChild(categorieElement);
-    metaContainer.appendChild(kooktijdElement);
+
   
     // add the listTitels
     ingredientenContainer.appendChild(ingredientenTitel);
