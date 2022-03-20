@@ -24,6 +24,15 @@ const kookboek = {
       categorie: 'vega',
       picture: "./resources/images/Shakshuka.jpg"
 
+    },
+    4: {
+      naam: 'Omnia Groente met Kip',
+      ingredienten: ['Zoete Aardappel','Broccoli','Kip','Knoflook','Olijfolie','Peper en Zout'],
+      voorkeur: 'vlees',
+      kooktijd: 60,
+      categorie: 'oven',
+      picture: "./resources/images/bord-geen-fotores.png",
+      instructie: ['Snijd de zoete aardappel in plakjes, en de Brocolli in kleine roosjes', 'Doe olijfolie in de Omnia','Leg de kip als eerste in de Omnia','Bedek met de zoete aardappelschijfjes en de brocollie roosjes', 'Snijd wat knoflook in kleine stukjes en verdeel','Zet de omnia op het vuur en plaats het deksel erop. Wacht 40min. Houd de pan zoveel mogelijk dicht','Je kunt dit gerecht ook in een gewone oven maken. Gebruik dan een ovenschaal.']
     }
     
   }
@@ -124,6 +133,10 @@ async function koken(){
       document.getElementsByClassName('koekGrid')[0].removeChild(removePrevDiv);
     }
 
+    const removeNext = document.getElementsByClassName('nextButton')[0];
+    if (removeNext){
+    document.getElementsByClassName('koekGrid')[0].removeChild(removeNext);
+    }
 
     //GENERATE && ADD THE SELECTED RECEPeh TO THE GRID
 
