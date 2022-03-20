@@ -107,6 +107,8 @@ async function koken(){
     const recept = await kiesRecept(boek);
     const ingred = await toonIngredienten(recept);
     
+//remove existing elements on reload
+
   const existingFooter = document.getElementsByClassName('footer')[0];
   if (existingFooter){
     document.getElementsByClassName('koekGrid')[0].removeChild(existingFooter);
@@ -115,6 +117,11 @@ async function koken(){
     const bestaat = document.getElementsByClassName('meelGrid')[0];
     if (bestaat) {
       document.getElementsByClassName('koekGrid')[0].removeChild(bestaat);
+    }
+
+    const removePrevDiv = document.getElementsByClassName('prevDiv')[0];
+    if (removePrevDiv){
+      document.getElementsByClassName('koekGrid')[0].removeChild(removePrevDiv);
     }
 
 
@@ -191,7 +198,7 @@ async function koken(){
 
   //Call functions to Add elements
   //add meelGrid + elements  
-
+  const prevDiv = elementMaker('div','prevDiv','koekGrid',null,'<h1>KOEKBOEK!</h1>')
   const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
 //add next button 
 const nextButton = elementMaker('button','nextButton','koekGrid',null,'NEXT!');
@@ -246,6 +253,10 @@ scrollTo.scrollIntoView({behavior:"smooth"});
   
   // buttonElement.addEventListener('click', makeFlashy(pageTitle));
 function nextKoken (){
+  //remove next button     
+  document.getElementsByClassName('koekGrid')[0].removeChild(nextButton);
+
+
   const scrollTarget = document.getElementsByClassName('waitingContainer')[0];
   scrollTarget.scrollIntoView({behavior:"smooth"});
   koken();

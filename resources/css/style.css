@@ -11,15 +11,14 @@ body {
     max-width: 976px;
     margin: 50px auto;
     grid-template-areas:
-     "head"
-    "button"
-    "dots"
-    "meelGrid"
-    "nextButton"
-    "footer";
+     "head head head"
+    "button button button"
+    "dots dots dots"
+    "prevDiv meelGrid nextButton"
+    "footer footer footer";
     
-grid-template-rows: 200px 100px 50px 1fr 140px 200px;
-grid-template-columns: 1fr;
+grid-template-rows: 200px 100px 50px 1fr 200px;
+grid-template-columns: 100px 1fr 100px;
 row-gap: 20px;
 column-gap: 10%;
 }
@@ -101,7 +100,20 @@ button:active {
 
 /* start JS generated "meelGrid"area */
 
+.prevDiv {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed white;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
 
+.prevDiv h1 {
+    color: white;
+}
 
 .meelGrid {
     display: grid;
@@ -123,7 +135,7 @@ button:active {
 
 .nextButton {
     grid-area: nextButton;
-    width: 200px;
+    width: 100px;
     text-transform: uppercase;
     font-style:oblique;
     margin: 20px auto;
