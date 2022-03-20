@@ -116,8 +116,6 @@ async function koken(){
     }
 
 
-
-
     //GENERATE && ADD THE SELECTED RECEPT TO THE GRID
     // rewrite this later as some kind of array function / object-?
 
@@ -131,14 +129,6 @@ async function koken(){
       //add create element to parent element. parameter: parentelementName
 
       /*
-   const varArray = ['meelsGrid','meelsh2','meelsPicture','receptsGrid','metaContainer'];
-   const classNamesArray = ['meelGrid','receptNaam','meelPicture','receptGrid','metaContainer','kooktijdElement'];
-   const elementTypeArray = ['div','h2','div','div','div','p','p'];
-   const parentNodeClassName = ['koekGrid', 'meelGrid', 'meelGrid', 'koekGrid','receptGrid']; 
-   const testParent = koekGrid;  
-
-
-
 
   const elementMakerFromArray = (constname, elementType, classname, parentNodeClass) =>{
     let arrayLength = constname.length;
