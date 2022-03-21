@@ -159,6 +159,10 @@ button:active {
 
 /* start JS generated "meelGrid"area */
 
+.hiddenId {
+    display: none;
+}
+
 .prevDiv {
     display: flex;
     width: 200px;
