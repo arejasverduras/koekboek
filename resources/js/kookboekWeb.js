@@ -37,49 +37,22 @@ const kookboek = {
     
   }
 
-  const randomRecept = (boek) => {
+  const randomRecept = (boek, id) => {
     const recepten = Object.keys(boek);
-     let index = Math.floor(Math.random()*recepten.length);
-     let receptIndex = recepten[index];
-
+    let receptIndex ="";
+    do {
+    let index = Math.floor(Math.random()*recepten.length);
+    receptIndex = recepten[index];
+    }
+    while (receptIndex === id);
      const receptObject = boek[receptIndex];
+     receptObject.current = receptIndex;
+     console.log('current: '+ receptObject.current);
      return receptObject;
-    //  return receptIndex;
     
    }
 
-// function kiesRecept (boek,current) {
-//     return new Promise((resolve, reject)=>{
-//       // console.log('\nHet boek wordt opengeslagen');
-//       // console.log('\nHet bloek bladert uit zichzelf');
-//       // console.log('\nVanavond eten we: ');
-//       const result = randomRecept(boek);
-      
-//       const logResult = ()=> {
-//       // console.log('\n\n'+result + '!');
-//       const receptObject = boek[result];
-//       resolve (receptObject);
-//     }
-//       setTimeout(logResult, 250);
-//     })  
-//   };
-  
 
-
-  // function toonIngredienten (recept) {
-  //   return new Promise((resolve, reject)=>{
-      
-  //     console.log('\nDe ingredienten zijn: ');
-  //     setTimeout(()=>{
-        
-  //       console.log(recept.ingredienten);
-  //       resolve ('\n\nTijd om te koken!')
-  //     }, 250);
-  //   })
-    
-    
-    
-  // }
 function hideDots(dots) {
     const numberOfDots = dots.length;
     for (let x = 0; x < numberOfDots; x++ ) {
@@ -114,10 +87,22 @@ async function koken(){
     await loadDot(dot2);
     await loadDot(dot3);
     
-    const boek = kookboek;
 
-    const recept = randomRecept(boek);
-    // const ingred = await toonIngredienten(recept);
+    const boek = kookboek;
+ 
+let recept = ""
+
+const existingHiddenID = document.getElementsByClassName('hiddenId')[0];
+if (existingHiddenID){
+  let currentIndex = existingHiddenID.innerHTML;
+  console.log('hiddenID: '+currentIndex);
+  recept = randomRecept(boek,currentIndex);
+  //remove the existingHiddenId from the page
+  document.getElementsByClassName('koekGrid')[0].removeChild(existingHiddenID);
+} else {
+    
+recept = randomRecept(boek); 
+}
     
 //remove existing elements on reload
 
@@ -214,6 +199,8 @@ async function koken(){
 
   //Call functions to Add elements
   //add meelGrid + elements  
+  const hiddenID = elementMaker('p','hiddenId','koekGrid',null,recept.current);
+
   const prevDiv = elementMaker('div','prevDiv','koekGrid',null,'<h1>KOEKBOEK!</h1>');
 
   const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
@@ -269,6 +256,9 @@ scrollTo.scrollIntoView({behavior:"smooth"});
 
   
   // buttonElement.addEventListener('click', makeFlashy(pageTitle));
+
+
+
 function nextKoken (){
   //remove next button     
   document.getElementsByClassName('koekGrid')[0].removeChild(nextButton);
