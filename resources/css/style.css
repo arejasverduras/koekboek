@@ -192,6 +192,12 @@ button:active {
     box-shadow: -15px 15px grey;
 }
 
+@media screen and (max-width: 425px) {
+    .meelGrid {
+        grid-template-columns: 100%;
+    }
+}
+
 .nextButton {
     grid-area: nextButton;
     width: 100px;

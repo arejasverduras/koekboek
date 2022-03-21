@@ -211,9 +211,8 @@ async function koken(){
 
   //Call functions to Add elements
   //add meelGrid + elements  
- 
-    const prevDiv = elementMaker('div','prevDiv','koekGrid',null,'<h1>KOEKBOEK!</h1>')
-  
+  const prevDiv = elementMaker('div','prevDiv','koekGrid',null,'<h1>KOEKBOEK!</h1>');
+
   const meelGrid = elementMaker('div', 'meelGrid', 'koekGrid');
 //add next button 
 const nextButton = elementMaker('button','nextButton','koekGrid',null,'NEXT!');
