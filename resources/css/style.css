@@ -23,6 +23,49 @@ row-gap: 20px;
 column-gap: 10%;
 }
 
+@media screen and (min-width: 739px) and (max-width: 1095px) {
+    .koekGrid {
+        grid-template-areas: 
+        "head head"
+        "button button"
+        "dots dots"
+        "meelGrid nextButton"
+        "footer footer";
+        grid-template-columns: 1fr 100px;
+    }
+
+
+    .prevDiv {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 738px) {
+    .koekGrid {
+       grid-template-areas:
+        "head"
+        "button"
+        "dots"
+        "meelGrid"
+        "nextButton"
+        "footer";
+        grid-template-rows: 200px 100px 50px 1fr 140px 200px;
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+
+
+    .prevDiv {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .koekGrid {
+        grid-template-rows: 160px 100px 50px 1fr 140px 200px;
+    }
+}
+
 /* start of header area "head" */
 
 header {
@@ -36,6 +79,13 @@ header {
     border-bottom-right-radius: 12% 88%;
 }
 
+@media screen and (max-width: 1095px) {
+    header {
+        padding: 20px 0;
+    }
+}
+
+
 h1 {
   text-transform: uppercase;
   font-style: oblique;  
@@ -46,6 +96,15 @@ header p {
     text-align: right;
 }
 
+@media screen and (max-width: 425px) {
+    h1 {
+        text-align: center;
+    }
+
+    header p {
+        text-align: center;
+    }
+}
 
 h2 {
     text-align: center;
@@ -125,7 +184,7 @@ button:active {
     "picture"
     "receptGrid";
     
-    grid-template-rows: 75px 400px 500px;
+    grid-template-rows: 75px 400px 1fr;
     justify-content: center;
     justify-items: center;
     /* margin-top: 50px; */
@@ -167,7 +226,7 @@ button:active {
     grid-template-areas: 
     "metadata metadata"
     "ingredienten instructies";
-    grid-template-rows: 50px 400px;
+    grid-template-rows: 50px 1fr;
     background-color: blanchedalmond;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -190,12 +249,14 @@ button:active {
 .ingredientenHouder {
     grid-area: ingredienten;
     background-color: white;    
+    border-bottom-left-radius: 49px;
 }
 
 
 .instructiesHouder {
     grid-area: instructies;
     background-color: coral;    
+    border-bottom-right-radius: 49px;
 }
 
 /* .ingredientenTitel {
