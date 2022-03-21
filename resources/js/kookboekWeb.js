@@ -40,43 +40,46 @@ const kookboek = {
   const randomRecept = (boek) => {
     const recepten = Object.keys(boek);
      let index = Math.floor(Math.random()*recepten.length);
-     let recept = recepten[index];
-     return recept;
+     let receptIndex = recepten[index];
+
+     const receptObject = boek[receptIndex];
+     return receptObject;
+    //  return receptIndex;
     
    }
 
-function kiesRecept (boek) {
-    return new Promise((resolve, reject)=>{
-      // console.log('\nHet boek wordt opengeslagen');
-      // console.log('\nHet bloek bladert uit zichzelf');
-      // console.log('\nVanavond eten we: ');
-      const result = randomRecept(boek);
+// function kiesRecept (boek,current) {
+//     return new Promise((resolve, reject)=>{
+//       // console.log('\nHet boek wordt opengeslagen');
+//       // console.log('\nHet bloek bladert uit zichzelf');
+//       // console.log('\nVanavond eten we: ');
+//       const result = randomRecept(boek);
       
-      const logResult = ()=> {
-      // console.log('\n\n'+result + '!');
-      const receptObject = boek[result];
-      resolve (receptObject);
-    }
-      setTimeout(logResult, 250);
-    })  
-  };
+//       const logResult = ()=> {
+//       // console.log('\n\n'+result + '!');
+//       const receptObject = boek[result];
+//       resolve (receptObject);
+//     }
+//       setTimeout(logResult, 250);
+//     })  
+//   };
   
 
 
-  function toonIngredienten (recept) {
-    return new Promise((resolve, reject)=>{
+  // function toonIngredienten (recept) {
+  //   return new Promise((resolve, reject)=>{
       
-      console.log('\nDe ingredienten zijn: ');
-      setTimeout(()=>{
+  //     console.log('\nDe ingredienten zijn: ');
+  //     setTimeout(()=>{
         
-        console.log(recept.ingredienten);
-        resolve ('\n\nTijd om te koken!')
-      }, 250);
-    })
+  //       console.log(recept.ingredienten);
+  //       resolve ('\n\nTijd om te koken!')
+  //     }, 250);
+  //   })
     
     
     
-  }
+  // }
 function hideDots(dots) {
     const numberOfDots = dots.length;
     for (let x = 0; x < numberOfDots; x++ ) {
@@ -106,15 +109,15 @@ const pageTitle = document.getElementById('title');
 
 async function koken(){
  
-
     hideDots(allDots);
     await loadDot(dot1);
     await loadDot(dot2);
     await loadDot(dot3);
     
     const boek = kookboek;
-    const recept = await kiesRecept(boek);
-    const ingred = await toonIngredienten(recept);
+
+    const recept = randomRecept(boek);
+    // const ingred = await toonIngredienten(recept);
     
 //remove existing elements on reload
 
@@ -269,7 +272,7 @@ scrollTo.scrollIntoView({behavior:"smooth"});
 function nextKoken (){
   //remove next button     
   document.getElementsByClassName('koekGrid')[0].removeChild(nextButton);
-
+  console.log(recept);
 
   const scrollTarget = document.getElementsByClassName('waitingContainer')[0];
   scrollTarget.scrollIntoView({behavior:"smooth"});
