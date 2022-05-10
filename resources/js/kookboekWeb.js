@@ -21,7 +21,7 @@ const kookboek = {
       ingredienten: ['rode punt paprika', 'ei', 'ui', '2 pakjes tomatenblokje','wortel','koriander', 'naanbrood', 'aioli'],
       voorkeur: 'vega',
       kooktijd: 20,
-      categorie: 'vega',
+      categorie: 'exotisch',
       picture: "./resources/images/Shakshuka.jpg"
 
     },
@@ -33,6 +33,23 @@ const kookboek = {
       categorie: 'oven',
       picture: "./resources/images/bord-geen-fotores.png",
       instructie: ['Snijd de zoete aardappel in plakjes, en de Brocolli in kleine roosjes', 'Doe olijfolie in de Omnia','Leg de kip als eerste in de Omnia','Bedek met de zoete aardappelschijfjes en de brocollie roosjes', 'Snijd wat knoflook in kleine stukjes en verdeel','Zet de omnia op het vuur en plaats het deksel erop. Wacht 40min. Houd de pan zoveel mogelijk dicht','Je kunt dit gerecht ook in een gewone oven maken. Gebruik dan een ovenschaal.']
+    },
+    5: {
+      naam: 'Zalm Broccoli Pasta',
+      ingredienten: ['Zalmsnippers', 'Brocolli', 'Ui', 'Knoflook', 'Slagroom', 'Italiaanse Kruiden', 'Pasta'],
+      voorkeur: 'vis',
+      kooktijd: 15,
+      categorie: 'pasta',
+      picture: "",
+      instructie: ['Zet water op voor de pasta',
+                  'Knoflook & ui in de koekenpan', 
+                  'Voeg de brocolli toe', 
+                  'Snijd de zalm in zalmsnippers en voeg toe',
+                  'Voeg de italiaanse kruiden toe',
+                  'Als het water kookt, doe je de pasta erin',
+                'Voeg de slagroom toe',
+              'Zet de saus op een laag vuur, deze is nu klaar',
+              'Voeg de pasta toe aan de saus als deze klaar is. Roer door en serveer. Eet smakelijk!' ]
     }
     
   }
